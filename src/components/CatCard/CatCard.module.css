@@ -1,0 +1,12 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.card2 {
+  border: 2px solid red;
+}
+.card3 {
+  border: 2px solid green;
+}
