@@ -1,4 +1,7 @@
-# Заняття 3 - Компоненти та колекції
+# Module 02
+
+<details>
+  <summary>Заняття 3 - Компоненти та колекції</summary>
 
 - [Бібліотека React](https://github.com/goitacademy/react-v3-course-track/blob/03-components/src/assets/component-tree.png)
   - Стандартизація розробки
@@ -29,3 +32,34 @@
   - Типізація пропсів (`interface ComponentNameProps`)
   - Деструктуризація пропсів
 - Стилізація компонентів через CSS-модулі
+
+</details>
+<br/>
+<details>
+  <summary>Заняття 4 - Події та стан компонента</summary>
+
+## Обробка подій
+
+- Іменування атрибутів обробників `on*`
+- Додавання обробника події
+- Посилання на функцію та анонімний колбек
+- Об'єкт події
+- Типізація об'єкта події
+
+## Стан компонента
+
+- Реактивність
+- [Стан компонента](https://raw.githubusercontent.com/goitacademy/react-v3-course-track/refs/heads/04-state/src/assets/state.png)
+- [Поняття **оновлення** та **рендера** компонента](https://raw.githubusercontent.com/goitacademy/react-v3-course-track/refs/heads/04-state/src/assets/component-update.png)
+- Хук `useState`
+- Обмеження хуків
+- Асинхронність оновлення стану
+- Локальність стану з `ClickCounter`
+- [Підняття стану](https://raw.githubusercontent.com/goitacademy/react-v3-course-track/refs/heads/04-state/src/assets/lifting-state.png)
+- Компоненти `Counter` та `CountDisplay`
+- Декілька станів (зробити ефект toggle з `setIsVisible(!isVisible)`)
+- Оновлення об'єктів
+- Accordion
+- TagManeger
+
+</details>

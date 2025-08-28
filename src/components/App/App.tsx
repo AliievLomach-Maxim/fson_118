@@ -1,48 +1,56 @@
-import CatCard from "../CatCard/CatCard";
-import Test from "../Test/Test";
-import cats from "../../cats.json";
-import React from "react";
+import { useState } from "react";
+import Accordion from "../Accordion/Accordion";
+import TagManager from "../TagManager/TagManager";
+
+const data = [
+  {
+    label: "Accordion1",
+    description: "Some description for Accordion1",
+  },
+  {
+    label: "Accordion2",
+    description: "Some description for Accordion2",
+  },
+  {
+    label: "Accordion3",
+    description: "Some description for Accordion3",
+  },
+];
+const tags = [
+  "First tag",
+  "second tag",
+  "third tag",
+  "fourth tag",
+  "movie tag",
+  "actions tag",
+  "films tag",
+];
 
 const App = () => {
+  const [activeAccordion, setActiveAccordion] = useState(0);
+
+  const handleChangeAccordion = (indx: number) => {
+    setActiveAccordion(indx);
+  };
   return (
     <div>
-      <div className="card">Some asdasd</div>
-      <Test />
-      <Test />
-      <Test />
-      <Test />
-      <Test />
-      <Test />
-      <Test />
-      <Test />
+      {data.map((el, index) => (
+        <Accordion
+          key={el.label}
+          label={el.label}
+          description={el.description}
+          onAccordionClick={() => handleChangeAccordion(index)}
+          isOpen={activeAccordion === index}
+        />
+      ))}
       <hr />
       <hr />
-      <ul>
-        {cats.map((cat) => (
-          //   <CatCard
-          //     name={cat.name}
-          //     age={cat.age}
-          //     imgUrl={cat.image}
-          //     available={cat.available}
-          //   />
-          <CatCard cat={cat} key={cat.id} />
-        ))}
-      </ul>
+      <br />
+      <br />
+
+      <TagManager tags={tags} />
     </div>
   );
 };
 
 export default App;
-
-// const Comp = () => {
-//   return (
-//     <>
-//       <p>123</p>
-//       <p>qwe</p>
-//     </>
-//   )
-//  }
-
-// const somefn = () => {
-//   return 10 20
-//  }
