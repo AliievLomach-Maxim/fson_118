@@ -1,55 +1,42 @@
+import SearchFrom from "../SearchFrom/SearchFrom";
 import { useState } from "react";
-import Accordion from "../Accordion/Accordion";
-import TagManager from "../TagManager/TagManager";
-
-const data = [
-  {
-    label: "Accordion1",
-    description: "Some description for Accordion1",
-  },
-  {
-    label: "Accordion2",
-    description: "Some description for Accordion2",
-  },
-  {
-    label: "Accordion3",
-    description: "Some description for Accordion3",
-  },
-];
-const tags = [
-  "First tag",
-  "second tag",
-  "third tag",
-  "fourth tag",
-  "movie tag",
-  "actions tag",
-  "films tag",
-];
+import { Article } from "../../types/article";
+import { getArticles } from "../../services/apiService";
+import ArticleList from "../ArticleList/ArticleList";
 
 const App = () => {
-  const [activeAccordion, setActiveAccordion] = useState(0);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleChangeAccordion = (indx: number) => {
-    setActiveAccordion(indx);
+  const handleSearch = async (searchValue: string) => {
+    try {
+      setError(false);
+      setIsLoading(true);
+      const newArticles = await getArticles(searchValue);
+      setArticles(newArticles);
+    } catch {
+      setError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
-  return (
-    <div>
-      {data.map((el, index) => (
-        <Accordion
-          key={el.label}
-          label={el.label}
-          description={el.description}
-          onAccordionClick={() => handleChangeAccordion(index)}
-          isOpen={activeAccordion === index}
-        />
-      ))}
-      <hr />
-      <hr />
-      <br />
-      <br />
 
-      <TagManager tags={tags} />
-    </div>
+  // if (isLoading) {
+  //   return "loader";
+  // } else {
+  //   return "list";
+  // }
+
+  return (
+    <>
+      {isLoading && <h1>Loading...</h1>}
+      {error && <h1>Oops.. some error. pls reload page</h1>}
+      <SearchFrom onSearch={handleSearch} disabled={isLoading} />
+      <hr />
+      {/* {!!articles.length && <ArticleList articleList={articles} />} */}
+      {articles.length > 0 && <ArticleList articleList={articles} />}
+    </>
   );
 };
 
