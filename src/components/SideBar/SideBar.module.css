@@ -1,0 +1,22 @@
+.drop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ccc;
+  width: 100dvw;
+}
+
+.sidebar {
+  border-right: 1px solid #8f8f8f;
+  background: #fff;
+  width: 200px;
+  min-height: 100dvh;
+  padding: 16px;
+  float: left;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
