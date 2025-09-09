@@ -1,0 +1,25 @@
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 400px;
+  list-style-type: none;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 40px;
+    height: 40px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+.active {
+  background-color: green;
+}
