@@ -142,3 +142,27 @@ http://hn.algolia.com/api/v1/search
 
 </details>
 <br/>
+
+<details>
+  <summary>Заняття 8 - Форми з Formik</summary>
+
+- Бібліотека [Formik](https://formik.org/)
+- Контейнер форми `Formik` та `Form`
+  - Пропс `initialValues`
+  - Пропс `onSubmit`
+- Поля форми `Field`
+  - Атрибут `name`
+- Стилізація компонентів `Formik`
+- Типізація `initialValues`
+- Параметри `values` та `actions` у `onSubmit`
+- Типи полів через пропс `as`
+- Доступ до властивостей `Formik` у JSX через Render Prop
+- Валідація з [`Yup`](https://github.com/jquense/yup)
+  - Схема валідаціі
+  - Можливі аргументи функції-валідатора
+  - Пропс `validationSchema`
+- Компонент `ErrorMessage`
+  - Пропс `component`
+
+</details>
+<br/>
