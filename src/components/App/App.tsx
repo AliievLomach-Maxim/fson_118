@@ -5,19 +5,28 @@ import Modal from "../Modal/Modal";
 import TaskForm from "../TaskForm/TaskForm";
 import { getTasks } from "../../services/taskService";
 import css from "./App.module.css";
+import { useDebouncedCallback } from "use-debounce";
+import SearchBox from "../SearchBox/SearchBox";
+import useToggle from "../../hooks/useToggle";
 
 export default function App() {
+  const [isModalOpen, openModal, closeModal] = useToggle();
+
+  const [searchValue, setSearchValue] = useState("");
+
   const { data, isLoading } = useQuery({
-    queryKey: ["tasks"],
-    queryFn: getTasks,
+    queryKey: ["tasks", searchValue],
+    queryFn: () => getTasks(searchValue),
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  // const handleSearch = useDebouncedCallback(setSearchValue, 500);
+  const handleSearch = useDebouncedCallback((val: string) => {
+    setSearchValue(val);
+  }, 500);
 
   return (
     <div className={css.container}>
+      <SearchBox value={searchValue} onSearch={handleSearch} />
       <header className={css.header}>
         <button className={css.createButton} onClick={openModal}>
           Create task
