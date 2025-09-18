@@ -197,3 +197,18 @@ http://hn.algolia.com/api/v1/search
 - Редагування завдання. Зміна стану completed через чекбокс
 
 </details>
+
+<br/>
+
+<details>
+  <summary>Заняття 10 - Контрольовані елементи</summary>
+
+- Контрольовані елементи
+  - Атрибути `value` та `onChange`
+- Компоненти `SearchBox` та `SortFilter`
+- Відкладений пошук з [use-debounce](https://www.npmjs.com/package/use-debounce)
+  - Хук `useDebouncedCallback`
+- Відкладений пошук з React Query
+- Власні хуки
+
+</details>
